@@ -1,6 +1,6 @@
 # Introduction to Fundamental Data Structures and Techniques  <!-- omit in toc -->
 
-This repository is a structured, comprehensive collection of notes designed based on the [Introduction to Fundamental Data Structures and Techniques](coursera.org/learn/packt-introduction-to-fundamental-data-structures-and-techniques-9zdns) course offered on Coursera.
+This repository is a structured, comprehensive collection of notes designed based on the [Introduction to Fundamental Data Structures and Techniques](https://www.coursera.org/learn/packt-introduction-to-fundamental-data-structures-and-techniques-9zdns) course offered on Coursera.
 
 - [Resource](#resource)
 
