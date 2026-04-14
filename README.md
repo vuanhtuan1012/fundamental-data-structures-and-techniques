@@ -4,6 +4,7 @@ This repository is a structured, comprehensive collection of notes designed base
 
 - [Arrays, String: Manipulation \& Hashing](#arrays-string-manipulation--hashing)
   - [Two Sum](#two-sum)
+  - [Contains Duplicate](#contains-duplicate)
 - [Resources](#resources)
 
 
@@ -14,11 +15,18 @@ This repository is a structured, comprehensive collection of notes designed base
 - **Problem:** Given an array of integers `nums` and an integer `target`, return indices of the two numbers such that they add up to `target`.
 
   You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.
-
 - **Approaches:**
-  - *Brute Force:* `O(n**2)`
+  - *Brute Force:* `O(n^2)`
   - *Two Pointers:* `O(nlogn)`
   - *Hash Map:* `O(n)`
+
+### Contains Duplicate
+
+- **Problem:** Given an integer array `nums`, return `True` if any value appears at least twice in the array, and return `False` if every element is distinct.
+- **Approaches:**
+  - *Brute Force:* `O(n^2)`
+  - *Sorting:* `O(nlogn)`
+  - *Hash Set:* `O(n)`
 
 
 ## Resources
