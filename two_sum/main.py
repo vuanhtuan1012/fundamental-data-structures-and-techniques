@@ -2,7 +2,7 @@
 # @Author: VU Anh Tuan
 # @Date:   2026-04-13 09:07:13
 # @Last Modified by:   VU Anh Tuan
-# @Last Modified time: 2026-04-13 21:15:39
+# @Last Modified time: 2026-04-14 21:35:13
 """
 Two Sum
 
@@ -72,9 +72,9 @@ def hash_map(nums: list[int], target: int) -> set[int]:
     return NOT_FOUND
 
 
-def dry_test():
+def dry_run():
     """
-    Dry tests
+    Dry run tests
     """
     nums = [5, 5, 5]
     target = 10
@@ -86,4 +86,4 @@ def dry_test():
 
 
 if __name__ == "__main__":
-    dry_test()
+    dry_run()
