@@ -5,6 +5,7 @@ This repository is a structured, comprehensive collection of notes designed base
 - [Arrays, String: Manipulation \& Hashing](#arrays-string-manipulation--hashing)
   - [Two Sum](#two-sum)
   - [Contains Duplicate](#contains-duplicate)
+  - [Valid Anagram](#valid-anagram)
 - [Resources](#resources)
 
 
@@ -17,7 +18,7 @@ This repository is a structured, comprehensive collection of notes designed base
   You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.
 - **Approaches:**
   - *Brute Force:* `O(n^2)`
-  - *Two Pointers:* `O(nlogn)`
+  - *Two Pointers:* `O(n log n)`
   - *Hash Map:* `O(n)`
 
 ### Contains Duplicate
@@ -25,8 +26,22 @@ This repository is a structured, comprehensive collection of notes designed base
 - **Problem:** Given an integer array `nums`, return `True` if any value appears at least twice in the array, and return `False` if every element is distinct.
 - **Approaches:**
   - *Brute Force:* `O(n^2)`
-  - *Sorting:* `O(nlogn)`
+  - *Sorting:* `O(n log n)`
   - *Hash Set:* `O(n)`
+
+### Valid Anagram
+
+- **Problem:** Given two strings `source` and `target`, return `True` if `target` is an anagram of `source`, and `False` otherwise.
+
+  An **Anagram** is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+
+  *For example:*
+  - `is_anagram("anagram", "nagaram") = True`
+  - `is_anagram("state", "tea") = False`
+  - `is_anagram("school master", "the classroom") = True`
+- **Approaches:**
+  - *Brute Force:* `O(n log n)`
+  - *Counting Frequency (Hash Map):* `O(n)`
 
 
 ## Resources
