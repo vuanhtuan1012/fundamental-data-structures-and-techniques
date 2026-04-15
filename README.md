@@ -41,7 +41,7 @@ This repository is a structured, comprehensive collection of notes designed base
   - `is_anagram("school master", "the classroom") = True`
 - **Approaches:**
   - *Brute Force:* `O(n log n)`
-  - *Counting Frequency (Hash Map):* `O(n)`
+  - *Counting Frequency (Hash Map):* `O(max(n, m))` where `n` and `m` are the lengths of `source` and `target`.
 
 
 ## Resources
