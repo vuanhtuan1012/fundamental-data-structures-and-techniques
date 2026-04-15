@@ -2,7 +2,7 @@
 # @Author: VU Anh Tuan
 # @Date:   2026-04-14 20:19:00
 # @Last Modified by:   VU Anh Tuan
-# @Last Modified time: 2026-04-15 09:01:30
+# @Last Modified time: 2026-04-15 10:16:56
 """
 Test cases for the Contains Duplicate problem
 """
@@ -12,8 +12,8 @@ import pytest
 from main import brute_force, sorting, hash_set
 
 ARGS = {
-    "names": ("nums", "expected"),
-    "values": (
+    "argnames": ("nums", "expected"),
+    "argvalues": (
         # Basic Cases
         ([1, 2, 3, 1], True),
         ([1, 2, 3, 4], False),
@@ -56,7 +56,7 @@ ARGS = {
 }
 
 
-@pytest.mark.parametrize(ARGS["names"], ARGS["values"], ids=ARGS["ids"])
+@pytest.mark.parametrize(**ARGS)
 def test_brute_force(nums, expected):
     """
     Test the Brute Force solution
@@ -64,7 +64,7 @@ def test_brute_force(nums, expected):
     assert brute_force(nums) is expected
 
 
-@pytest.mark.parametrize(ARGS["names"], ARGS["values"], ids=ARGS["ids"])
+@pytest.mark.parametrize(**ARGS)
 def test_sorting(nums, expected):
     """
     Test the Sorting solution
@@ -72,7 +72,7 @@ def test_sorting(nums, expected):
     assert sorting(nums) is expected
 
 
-@pytest.mark.parametrize(ARGS["names"], ARGS["values"], ids=ARGS["ids"])
+@pytest.mark.parametrize(**ARGS)
 def test_hash_set(nums, expected):
     """
     Test the Hash Set solution

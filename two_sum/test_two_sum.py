@@ -2,7 +2,7 @@
 # @Author: VU Anh Tuan
 # @Date:   2026-04-13 09:29:35
 # @Last Modified by:   VU Anh Tuan
-# @Last Modified time: 2026-04-15 09:01:07
+# @Last Modified time: 2026-04-15 10:16:16
 """
 Test cases for the Two Sum problem
 """
@@ -12,8 +12,8 @@ import pytest
 from main import brute_force, two_pointers, hash_map
 
 ARGS = {
-    "names": ("nums", "target", "expected"),
-    "values": (
+    "argnames": ("nums", "target", "expected"),
+    "argvalues": (
         # Basic Cases
         ([2, 7, 11, 15], 9, {0, 1}),
         ([3, 2, 4], 6, {1, 2}),
@@ -57,11 +57,7 @@ ARGS = {
 }
 
 
-@pytest.mark.parametrize(
-    ARGS["names"],
-    ARGS["values"],
-    ids=ARGS["ids"],
-)
+@pytest.mark.parametrize(**ARGS)
 def test_brute_force(nums, target, expected):
     """
     Test the Brute Force solution
@@ -73,11 +69,7 @@ def test_brute_force(nums, target, expected):
         assert result in expected
 
 
-@pytest.mark.parametrize(
-    ARGS["names"],
-    ARGS["values"],
-    ids=ARGS["ids"],
-)
+@pytest.mark.parametrize(**ARGS)
 def test_two_pointers(nums, target, expected):
     """
     Test the Two Pointers solution
@@ -89,11 +81,7 @@ def test_two_pointers(nums, target, expected):
         assert result in expected
 
 
-@pytest.mark.parametrize(
-    ARGS["names"],
-    ARGS["values"],
-    ids=ARGS["ids"],
-)
+@pytest.mark.parametrize(**ARGS)
 def test_hash_map(nums, target, expected):
     """
     Test the Hash Map solution
