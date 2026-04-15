@@ -2,7 +2,7 @@
 # @Author: VU Anh Tuan
 # @Date:   2026-04-13 09:07:13
 # @Last Modified by:   VU Anh Tuan
-# @Last Modified time: 2026-04-14 21:35:13
+# @Last Modified time: 2026-04-15 09:04:57
 """
 Two Sum
 
@@ -21,6 +21,9 @@ def brute_force(nums: list[int], target: int) -> set[int]:
     """
     Brute Froce Solution
 
+    Time complexity: O(n^2)
+    Space complexity: O(1)
+
     Returns indices of the two numbers in `nums` such that
     they add up to `target`
     """
@@ -36,6 +39,9 @@ def brute_force(nums: list[int], target: int) -> set[int]:
 def two_pointers(nums: list[int], target: int) -> set[int]:
     """
     Two Pointers Solution
+
+    Time complexity: O(n log n) due to sorting
+    Space complexity: O(n) due to sorting
 
     Returns indices of the two numbers in `nums` such that
     they add up to `target`
@@ -58,6 +64,9 @@ def two_pointers(nums: list[int], target: int) -> set[int]:
 def hash_map(nums: list[int], target: int) -> set[int]:
     """
     Hash Map Solution
+
+    Time complexity: O(n)
+    Space complexity: O(n)
 
     Returns indices of the two numbers in `nums` such that
     they add up to `target`
