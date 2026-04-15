@@ -2,16 +2,13 @@
 # @Author: VU Anh Tuan
 # @Date:   2026-04-14 16:31:25
 # @Last Modified by:   VU Anh Tuan
-# @Last Modified time: 2026-04-14 21:34:45
+# @Last Modified time: 2026-04-15 09:03:32
 """
 Contains Duplicate
 
 Given an integer array `nums`, return `True` if any value appears at least twice
 in the array, and return `False` if every element is distinct.
 """
-
-
-from two_sum.main import dry_test
 
 
 def brute_force(nums: list[int]) -> bool:
