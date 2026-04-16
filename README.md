@@ -6,6 +6,7 @@ This repository is a structured, comprehensive collection of notes designed base
   - [Two Sum](#two-sum)
   - [Contains Duplicate](#contains-duplicate)
   - [Valid Anagram](#valid-anagram)
+  - [Group Anagrams](#group-anagrams)
 - [Resources](#resources)
 
 
@@ -42,6 +43,26 @@ This repository is a structured, comprehensive collection of notes designed base
 - **Approaches:**
   - *Brute Force:* `O(n log n)`
   - *Counting Frequency (Hash Map):* `O(max(n, m))` where `n` and `m` are the lengths of `source` and `target`.
+
+### Group Anagrams
+
+- **Problem:** Given an array of strings `strings`, group the anagrams together. You can return the answer in any order.
+
+  An **Anagram** is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+
+  *For example:*
+  - Input: `["eat", "tea", "tan", "ate", "nat", "bat"]`
+  - Output: `[["bat"], ["nat", "tan"], ["ate", "eat", "tea"]]`
+- **Approaches:**
+  - *Brute Force:* `O(n^2 * k)`, where:
+    - `n` is the number of strings and
+    - `k` is the average length of the strings.
+  - *Sorting String:* `O(n * k log k)`, where:
+    - `n` is the number of strings and
+    - `k` is the average length of the strings.
+  - *Counting Frequency:* `O(n * k)`, where:
+    - `n` is the number of strings and
+    - `k` is the average length of the strings.
 
 
 ## Resources
