@@ -2,7 +2,7 @@
 # @Author: VU Anh Tuan
 # @Date:   2026-04-17 17:23:18
 # @Last Modified by:   VU Anh Tuan
-# @Last Modified time: 2026-04-17 19:12:21
+# @Last Modified time: 2026-04-17 19:51:59
 """
 Top Frequent Elements
 
@@ -34,9 +34,9 @@ def get_top_frequent_elements(nums: list[int], k: int) -> list[int]:
         if not elements:
             continue
         for ele in elements:
-            top_frequent_elements.append(ele)
             if len(top_frequent_elements) == k:
                 return top_frequent_elements
+            top_frequent_elements.append(ele)
     return top_frequent_elements
 
 

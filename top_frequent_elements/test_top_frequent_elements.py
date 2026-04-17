@@ -2,7 +2,7 @@
 # @Author: VU Anh Tuan
 # @Date:   2026-04-17 18:53:11
 # @Last Modified by:   VU Anh Tuan
-# @Last Modified time: 2026-04-17 19:02:47
+# @Last Modified time: 2026-04-17 19:52:44
 """
 Test cases for Top Frequent Elements
 """
@@ -19,6 +19,7 @@ ARGS = {
         ([4, 4, 4, 4], 1, {4}),
         ([5, 5, 5, 6], 2, {5, 6}),
         ([7, 8, 9], 3, {7, 8, 9}),
+        ([10], 0, set()),
         ([10], 2, {10}),
         ([], 1, set()),
     ),
@@ -28,6 +29,7 @@ ARGS = {
         "All Elements Same",
         "Two Most Frequent",
         "All Unique",
+        "K is Zero",
         "K Greater than Unique Elements",
         "Empty List",
     ),
