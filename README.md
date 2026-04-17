@@ -7,6 +7,7 @@ This repository is a structured, comprehensive collection of notes designed base
   - [Contains Duplicate](#contains-duplicate)
   - [Valid Anagram](#valid-anagram)
   - [Group Anagrams](#group-anagrams)
+  - [Top Frequent Elements](#top-frequent-elements)
 - [Resources](#resources)
 
 
@@ -63,6 +64,20 @@ This repository is a structured, comprehensive collection of notes designed base
   - *Counting Frequency:* `O(n * k)`, where:
     - `n` is the number of strings and
     - `k` is the average length of the strings.
+
+### Top Frequent Elements
+
+- **Problem:** Given an integer array `nums` and an integer `k`, return the `k` most frequent elements. You may return the answer in any order.
+
+  For example:
+  - Input: `nums = [1, 1, 1, 2, 2, 3]`, `k = 2`
+  - Output: `[1, 2]` since the frequencies of elements are: 1 (3), 2 (2), 3 (1), so the two most frequent elements are `[1, 2]`.
+  - Input: `nums = [2, 2, 2, 5, 5, 7]`, `k = 3`
+  - Output: `[2, 5, 7]`.
+  - Input: `nums = [1]`, `k = 1`
+  - Output: `[1]`
+- Time Complexity: `O(n)`
+- Space Complexity: `O(n)`
 
 
 ## Resources
