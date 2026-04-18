@@ -2,7 +2,7 @@
 # @Author: VU Anh Tuan
 # @Date:   2026-04-15 08:53:13
 # @Last Modified by:   VU Anh Tuan
-# @Last Modified time: 2026-04-18 16:38:22
+# @Last Modified time: 2026-04-18 17:00:40
 """
 Valid Anagram
 
@@ -21,6 +21,8 @@ def brute_force(source: str, target: str) -> bool:
     Time complexity: O(n log n)
     Space complexity: O(n)
     """
+    if len(source) != len(target):
+        return False
     return sorted(source) == sorted(target)
 
 
@@ -34,15 +36,15 @@ def counting_frequency(source: str, target: str) -> bool:
     if len(source) != len(target):
         return False
 
-    char_count = {}
+    char_freq = {}
 
     for char in source:
-        char_count[char] = char_count.get(char, 0) + 1
+        char_freq[char] = char_freq.get(char, 0) + 1
 
     for char in target:
-        if char not in char_count or char_count[char] == 0:
+        if char not in char_freq or char_freq[char] == 0:
             return False
-        char_count[char] -= 1
+        char_freq[char] -= 1
 
     return True
 
