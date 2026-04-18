@@ -2,7 +2,7 @@
 # @Author: VU Anh Tuan
 # @Date:   2026-04-15 08:53:13
 # @Last Modified by:   VU Anh Tuan
-# @Last Modified time: 2026-04-15 10:23:04
+# @Last Modified time: 2026-04-18 16:38:22
 """
 Valid Anagram
 
@@ -28,7 +28,7 @@ def counting_frequency(source: str, target: str) -> bool:
     """
     Counting Solution
 
-    Time complexity: O(max(n, m)) where n and m are the lengths of source and target
+    Time complexity: O(n) where n is the length of source and target
     Space complexity: O(1) or O(k) where k is the number of unique characters
     """
     if len(source) != len(target):

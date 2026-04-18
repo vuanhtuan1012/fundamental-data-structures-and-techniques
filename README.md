@@ -60,8 +60,8 @@ This repository is a structured, comprehensive collection of notes designed base
   - `is_anagram("state", "tea") = False`
   - `is_anagram("school master", "the classroom") = True`
 - **Approaches:**
-  - *Brute Force:* `O(n log n)`
-  - *Counting Frequency (Hash Map):* `O(max(n, m))` where `n` and `m` are the lengths of `source` and `target`.
+  - *Brute Force:* The algorithm normalizes both the `source` and `target` strings by sorting their characters in ascending order, then compares the results. It return `True` if the sorted strings match, otherwise, it return `False`. Because sorting dominates the runtime, the overall time complexity is `O(n log n)`.
+  - *Counting Frequency (Hash Map):* The algorithm relies on a hash table for constant-time average lookups and updates. It builds a frequency map from the `source` string, then decrements counts while scaning the `target` string. With each operation averaging `O(1)`, the overall time complexity is `O(n)`.
 
 ### Group Anagrams
 
