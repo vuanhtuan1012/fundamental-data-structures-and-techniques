@@ -17,17 +17,17 @@ This repository is a structured, comprehensive collection of notes designed base
 
 - **Problem:** Given an array of integers `nums` and an integer `target`, return indices of the two numbers such that they add up to `target`.
 
-  You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.
+  You may assume that each input may have more than one solution, and you may **not use** the same element twice. You can return the answer in any order.
 
   *For example:*
   - Input: `nums = [2, 7, 11, 15]`, `target = 9`
   - Output: `[0, 1]` since the sum of the first and second elements is `9`.
 - **Approaches:**
   - *Brute Force:* The algorithm evaluates every pair of elements in the array and returns the indices of the first pair whose sum matches the `target`. This brute force strategy leads to a quadratic time complexity `O(n^2)`.
-  - *Two Pointers:* The algorithm begins by sorting the arrayin ascending order. It then applies a two-pointer technique: one pointer starts at the beginning of the array, the other at the end.
-    - If the sum of the values at these positions exceeds the target, the right pointer is moved left;
-    - If the sum is below the target, the left pointer is moved right.
-    - When the sum matches the target, the indices of the corresponding pair is returned.
+  - *Two Pointers:* The algorithm begins by sorting the array in ascending order. It then applies a two-pointer technique: one pointer starts at the beginning of the array, the other at the end.
+    - If the sum of the values at these positions exceeds the `target`, the right pointer is moved left;
+    - If the sum is below the `target`, the left pointer is moved right.
+    - When the sum matches the `target`, the indices of the corresponding pair is returned.
 
     The sorting step dominates the runtime, giving the algorithm a time complexity `O(n log n)`.
   - *Hash Map:* The algorithm leverages a hash table, where both lookup and insertion take `O(1)` on average. It iterates through each element in the array, checks whether the element's component exists in the hash table.
@@ -41,9 +41,13 @@ This repository is a structured, comprehensive collection of notes designed base
 
 - **Problem:** Given an integer array `nums`, return `True` if any value appears at least twice in the array, and return `False` if every element is distinct.
 - **Approaches:**
-  - *Brute Force:* `O(n^2)`
-  - *Sorting:* `O(n log n)`
-  - *Hash Set:* `O(n)`
+  - *Brute Force:* The algorithm evaluates every pair of elements in the array and returns `True` if any value appears at least twice. This brute force strategy leads to a quadratic time complexity `O(n^2)`.
+  - *Sorting:* The idea is straightforward: sort the array in ascending order, then walk through it once to see whether any two neighboring elements are the same. If a matching is found, the algorithm returns `True`. Since the sorting step is the most expensive operation, the total time complexity is `O(n log n)`.
+  - *Hash Set:* The algorithm takes advantage of the fact that hash tables allow `O(1)` average-time lookups and insertions. It scans the array once, checking whether each element has already been seen.
+    - If it has, the algorithm immediately returns `True`.
+    - If not, the element is inserted to the hash table.
+
+    This single pass approach keeps the runtime at `O(n)`.
 
 ### Valid Anagram
 
