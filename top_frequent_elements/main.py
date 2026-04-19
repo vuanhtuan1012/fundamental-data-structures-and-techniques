@@ -2,7 +2,7 @@
 # @Author: VU Anh Tuan
 # @Date:   2026-04-17 17:23:18
 # @Last Modified by:   VU Anh Tuan
-# @Last Modified time: 2026-04-17 19:51:59
+# @Last Modified time: 2026-04-19 04:48:20
 """
 Top Frequent Elements
 
@@ -11,9 +11,28 @@ You may return the answer in any order.
 """
 
 
-def get_top_frequent_elements(nums: list[int], k: int) -> list[int]:
+def top_k_frequent_sorting(nums: list[int], k: int) -> list[int]:
     """
-    Returns the k most frequent elements in the input list
+    Sorting approach
+
+    Time Complexity: O(n log n)
+    Space Complexity: O(n)
+    """
+    # count the frequency of each element
+    ele_freq = {}
+    for ele in nums:
+        ele_freq[ele] = ele_freq.get(ele, 0) + 1
+
+    # sort the elements by their frequency in descending order
+    sorted_ele_freq = sorted(ele_freq.items(), key=lambda x: x[1], reverse=True)
+
+    # collect the top k frequent elements
+    return [num for num, _ in sorted_ele_freq[:k]]
+
+
+def top_k_frequent_buckets(nums: list[int], k: int) -> list[int]:
+    """
+    Bucket sort approach
 
     Time Complexity: O(n)
     Space Complexity: O(n)
@@ -24,9 +43,9 @@ def get_top_frequent_elements(nums: list[int], k: int) -> list[int]:
         ele_freq[ele] = ele_freq.get(ele, 0) + 1
 
     # create a bucket to group elements by their frequency
-    bucket: list[list[int]] = [[] for _ in range(len(nums))]
+    bucket: list[list[int]] = [[] for _ in range(len(nums) + 1)]
     for ele, freq in ele_freq.items():
-        bucket[freq - 1].append(ele)
+        bucket[freq].append(ele)
 
     # collect the top k frequent elements from the bucket
     top_frequent_elements = []
@@ -46,7 +65,8 @@ def dry_run():
     """
     nums = [1, 1, 2, 2, 2, 3]
     k = 4
-    print(get_top_frequent_elements(nums, k))
+    print(f"sorting approach: {top_k_frequent_sorting(nums, k)}")
+    print(f"bucket sort approach: {top_k_frequent_buckets(nums, k)}")
 
 
 if __name__ == "__main__":

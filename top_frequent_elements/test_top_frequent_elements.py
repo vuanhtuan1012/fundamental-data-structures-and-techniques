@@ -2,14 +2,14 @@
 # @Author: VU Anh Tuan
 # @Date:   2026-04-17 18:53:11
 # @Last Modified by:   VU Anh Tuan
-# @Last Modified time: 2026-04-17 19:52:44
+# @Last Modified time: 2026-04-19 04:46:48
 """
 Test cases for Top Frequent Elements
 """
 
 import pytest
 
-from main import get_top_frequent_elements
+from main import top_k_frequent_buckets, top_k_frequent_sorting
 
 ARGS = {
     "argnames": ("nums", "k", "expected"),
@@ -37,8 +37,16 @@ ARGS = {
 
 
 @pytest.mark.parametrize(**ARGS)
-def test_get_top_frequent_elements(nums, k, expected):
+def test_top_k_frequent_sorting(nums, k, expected):
     """
-    Test the get_top_frequent_elements function
+    Test the sorting approach
     """
-    assert set(get_top_frequent_elements(nums, k)) == expected
+    assert set(top_k_frequent_sorting(nums, k)) == expected
+
+
+@pytest.mark.parametrize(**ARGS)
+def test_top_k_frequent_buckets(nums, k, expected):
+    """
+    Test the bucket sort approach
+    """
+    assert set(top_k_frequent_buckets(nums, k)) == expected

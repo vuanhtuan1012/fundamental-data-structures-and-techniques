@@ -97,8 +97,9 @@ This repository is a structured, comprehensive collection of notes designed base
   - Output: `[2, 5, 7]`.
   - Input: `nums = [1]`, `k = 1`
   - Output: `[1]`
-- Time Complexity: `O(n)`
-- Space Complexity: `O(n)`
+- **Approaches:**
+  - *Sorting-based:* The algorithm constructs a frequency map by using a hash table to count occurrences of each number in the array. Once the frequencies are computed, the results are sorted in descending order based on frequency. Because sorting dominates the runtime, the overall time complexity is `O(n log n)`.
+  - *Bucketing:* The algorithm uses a hash table to compute frequency counts for all numbers in the array, then groups numbers into buckets keyed by frequency. Both counting and bucketing are linear operation, resulting in an overall time complexity of `O(n)`.
 
 
 ## Resources
