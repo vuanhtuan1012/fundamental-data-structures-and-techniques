@@ -48,6 +48,7 @@ This repository is a structured, comprehensive collection of notes designed base
     - If not, the element is inserted to the hash table.
 
     This single pass approach keeps the runtime at `O(n)`.
+- **Implementation:** The implementation and test cases are provided in the [contains duplicate](./contains_duplicate/) directory.
 
 ### Valid Anagram
 
@@ -62,6 +63,7 @@ This repository is a structured, comprehensive collection of notes designed base
 - **Approaches:**
   - *Brute Force:* The algorithm normalizes both the `source` and `target` strings by sorting their characters in ascending order, then compares the results. It return `True` if the sorted strings match, otherwise, it return `False`. Because sorting dominates the runtime, the overall time complexity is `O(n log n)`.
   - *Counting Frequency (Hash Map):* The algorithm relies on a hash table for constant-time average lookups and updates. It builds a frequency map from the `source` string, then decrements counts while scaning the `target` string. With each operation averaging `O(1)`, the overall time complexity is `O(n)`.
+- **Implementation:** The implementation and test cases are provided in the [valid anagram](./valid_anagram/) directory.
 
 ### Group Anagrams
 
@@ -73,15 +75,16 @@ This repository is a structured, comprehensive collection of notes designed base
   - Input: `["eat", "tea", "tan", "ate", "nat", "bat"]`
   - Output: `[["bat"], ["nat", "tan"], ["ate", "eat", "tea"]]`
 - **Approaches:**
-  - *Brute Force:* `O(n^2 * k)`, where:
+  - *Brute Force:* The algorithm proceeds by defining a [helper function](#valid-anagram) that determines whether two strings are anagrams. It then evaluates every pair of strings using this function. Because each anagram check costs `O(k)` and there are `O(n^2)` pairs, the total runtime is `O(n^2 * k)`, where:
     - `n` is the number of strings and
     - `k` is the average length of the strings.
-  - *Sorting String:* `O(n * k log k)`, where:
+  - *Sorting String:* The algorithm computes a sorted canonical form for each string and uses it as a hash table key to group anagrams. Strings with identical sorted forms end up in the same list. Sorting dominates the cost at `O(k log k)` per string, leading to an overall time complexity of `O(n * k log k)`, where:
     - `n` is the number of strings and
     - `k` is the average length of the strings.
-  - *Counting Frequency:* `O(n * k)`, where:
+  - *Counting Frequency:* The algorithm generates a character-frequency signature for each string using a predefined alphabet-indexed hash table. This signature serves as the hash table key for grouping anagrams. Since building the signature is `O(k)` and performed for all strings, the overall time complexity is `O(n * k)`, where:
     - `n` is the number of strings and
     - `k` is the average length of the strings.
+- **Implementation:** The implementation and test cases are provided in the [group anagrams](./group_anagrams/) directory.
 
 ### Top Frequent Elements
 

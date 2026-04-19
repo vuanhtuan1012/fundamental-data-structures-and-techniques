@@ -2,7 +2,7 @@
 # @Author: VU Anh Tuan
 # @Date:   2026-04-16 09:07:17
 # @Last Modified by:   VU Anh Tuan
-# @Last Modified time: 2026-04-16 12:11:00
+# @Last Modified time: 2026-04-19 03:49:51
 """
 Group Anagrams
 
@@ -17,9 +17,9 @@ Example 1:
 """
 
 
-def is_anagram(source: str, target: str) -> bool:
+def are_anagrams(source: str, target: str) -> bool:
     """
-    Checks if the source string is an anagram of the target string
+    Checks if two strings are anagrams of each other.
     """
     # validate the length of strings
     if len(source) != len(target):
@@ -45,25 +45,24 @@ def brute_force(strings: list[str]) -> list[list[str]]:
     Time Complexity: O(n^2 * k), where:
     - n is the number of strings and
     - k is the average length of the strings
-    Space Complexity: O(n * k), where:
-    - n is the number of strings and
-    - k is the average length of the strings
+    Space Complexity: O(n), where:
+    - n is the number of strings
     """
-    res = []
-    added = set()
+    result = []
+    used = [False] * len(strings)
     for i, source in enumerate(strings):
-        if source in added:
+        if used[i]:
             continue
 
-        added.add(source)
-        temp = [source]
+        used[i] = True
+        group = [source]
         for j in range(i + 1, len(strings)):
             target = strings[j]
-            if is_anagram(source, target):
-                temp.append(target)
-                added.add(target)
-        res.append(temp)
-    return res
+            if not used[j] and are_anagrams(source, target):
+                group.append(target)
+                used[j] = True
+        result.append(group)
+    return result
 
 
 def sorting_string(strings: list[str]) -> list[list[str]]:
@@ -86,19 +85,20 @@ def sorting_string(strings: list[str]) -> list[list[str]]:
     return list(string_map.values())
 
 
-def get_frequency_string(string: str) -> str:
+def get_string_signature(string: str) -> str:
     """
-    Converts a string into a frequency string,
+    Converts a string into a character frequency signature,
     which is a string representation of the frequency of each character in the input string.
 
-    For example, the string "eat" would be converted to "a1e1t1".
+    For example, the string "eat" would be converted to "a1e1t1" (characters are ordered alphabetically).
     """
     # create a char frequency map
     char_freq = {chr(c): 0 for c in range(ord("a"), ord("z") + 1)}
     char_freq.update({chr(c): 0 for c in range(ord("A"), ord("Z") + 1)})
 
     for char in string:
-        char_freq[char] = char_freq[char] + 1
+        if char in char_freq:
+            char_freq[char] = char_freq[char] + 1
     return "".join([f"{char}{freq}" for char, freq in char_freq.items() if freq > 0])
 
 
@@ -115,7 +115,7 @@ def counting_frequency(strings: list[str]) -> list[list[str]]:
     """
     freq_map: dict[str, list[str]] = {}
     for string in strings:
-        freq_string = get_frequency_string(string)
+        freq_string = get_string_signature(string)
         if freq_string not in freq_map:
             freq_map[freq_string] = []
         freq_map[freq_string].append(string)
