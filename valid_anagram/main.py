@@ -1,7 +1,7 @@
 # @Author: VU Anh Tuan
 # @Date:   2026-04-15 08:53:13
 # @Last Modified by:   VU Anh Tuan
-# @Last Modified time: 2026-09-17 12:36:52
+# @Last Modified time: 2026-09-17 18:20:35
 """
 Valid Anagram
 
@@ -52,21 +52,28 @@ def run_examples():
     """
     Run examples
     """
-    print(f"brute_force('anagram', 'nagaram'): {brute_force('anagram', 'nagaram')}")  # True
-    print(f"brute_force('state', 'tea'): {brute_force('state', 'tea')}")  # False
-    print(
-        "brute_force('school master', 'the classroom'): "
-        f"{brute_force('school master', 'the classroom')}"
-    )  # True
-    print(f"brute_force('rat', 'car'): {brute_force('rat', 'car')}")  # False
+    # Example 1
+    print(f"       brute_force('anagram', 'nagaram'): {brute_force('anagram', 'nagaram')}")  # True
     print(
         f"counting_frequency('anagram', 'nagaram'): {counting_frequency('anagram', 'nagaram')}"
     )  # True
+
+    # Example 2
+    print(f"       brute_force('state', 'tea'): {brute_force('state', 'tea')}")  # False
     print(f"counting_frequency('state', 'tea'): {counting_frequency('state', 'tea')}")  # False
+
+    # Example 3
+    print(
+        "       brute_force('school master', 'the classroom'): "
+        f"{brute_force('school master', 'the classroom')}"
+    )  # True
     print(
         "counting_frequency('school master', 'the classroom'): "
         f"{counting_frequency('school master', 'the classroom')}"
     )  # True
+
+    # Example 4
+    print(f"       brute_force('rat', 'car'): {brute_force('rat', 'car')}")  # False
     print(f"counting_frequency('rat', 'car'): {counting_frequency('rat', 'car')}")  # False
 
 
