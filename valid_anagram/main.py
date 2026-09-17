@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 # @Author: VU Anh Tuan
 # @Date:   2026-04-15 08:53:13
 # @Last Modified by:   VU Anh Tuan
-# @Last Modified time: 2026-04-18 17:00:40
+# @Last Modified time: 2026-09-17 12:36:52
 """
 Valid Anagram
 
@@ -49,20 +48,20 @@ def counting_frequency(source: str, target: str) -> bool:
     return True
 
 
-def dry_run():
+def run_examples():
     """
-    Dry Run
+    Run examples
     """
-    print(
-        f"brute_force('anagram', 'nagaram'): {brute_force('anagram', 'nagaram')}"
-    )  # True
+    print(f"brute_force('anagram', 'nagaram'): {brute_force('anagram', 'nagaram')}")  # True
     print(f"brute_force('state', 'tea'): {brute_force('state', 'tea')}")  # False
     print(
         "brute_force('school master', 'the classroom'): "
         f"{brute_force('school master', 'the classroom')}"
     )  # True
     print(f"brute_force('rat', 'car'): {brute_force('rat', 'car')}")  # False
-    print(f"counting_frequency('anagram', 'nagaram'): {counting_frequency('anagram', 'nagaram')}")  # True
+    print(
+        f"counting_frequency('anagram', 'nagaram'): {counting_frequency('anagram', 'nagaram')}"
+    )  # True
     print(f"counting_frequency('state', 'tea'): {counting_frequency('state', 'tea')}")  # False
     print(
         "counting_frequency('school master', 'the classroom'): "
@@ -72,4 +71,4 @@ def dry_run():
 
 
 if __name__ == "__main__":
-    dry_run()
+    run_examples()
