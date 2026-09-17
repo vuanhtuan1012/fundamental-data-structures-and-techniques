@@ -2,18 +2,19 @@
 # @Author: VU Anh Tuan
 # @Date:   2026-04-16 09:07:17
 # @Last Modified by:   VU Anh Tuan
-# @Last Modified time: 2026-04-19 03:49:51
+# @Last Modified time: 2026-09-17 18:24:21
 """
 Group Anagrams
 
-Given an array of strings `strings`, group anagrams together. You can return the answer in any order.
+Given an array of strings `strings`, group anagrams together.
+You can return the answer in any order.
 
 An Anagram is a word or phrase formed by rearranging the letters of
 a different word or phrase, typically using all the original letters exactly once.
 
 Example 1:
-- Input: strings = ["eat","tea","tan","ate","nat","bat"]
-- Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
+- Input : ["eat", "tea", "tan", "ate", "nat", "bat"]
+- Output: [["bat"], ["nat", "tan"], ["ate", "eat", "tea"]]
 """
 
 
@@ -76,30 +77,31 @@ def sorting_string(strings: list[str]) -> list[list[str]]:
     - n is the number of strings and
     - k is the average length of the strings
     """
-    string_map: dict[str, list[str]] = {}
+    groups: dict[str, list[str]] = {}
     for string in strings:
         sorted_string = "".join(sorted(string))
-        if sorted_string not in string_map:
-            string_map[sorted_string] = []
-        string_map[sorted_string].append(string)
-    return list(string_map.values())
+        if sorted_string not in groups:
+            groups[sorted_string] = []
+        groups[sorted_string].append(string)
+    return list(groups.values())
 
 
-def get_string_signature(string: str) -> str:
+def build_string_signature(string: str) -> str:
     """
-    Converts a string into a character frequency signature,
+    Builds a string into a character frequency signature,
     which is a string representation of the frequency of each character in the input string.
 
-    For example, the string "eat" would be converted to "a1e1t1" (characters are ordered alphabetically).
+    For example, the string "eat" would be converted to
+    "a1e1t1" (characters are ordered alphabetically).
     """
-    # create a char frequency map
-    char_freq = {chr(c): 0 for c in range(ord("a"), ord("z") + 1)}
-    char_freq.update({chr(c): 0 for c in range(ord("A"), ord("Z") + 1)})
+    # initialize alphabet frequency dictionary
+    alphabet_freq = {chr(i): 0 for i in range(ord("a"), ord("z") + 1)}
+    alphabet_freq.update({chr(i): 0 for i in range(ord("A"), ord("Z") + 1)})
 
     for char in string:
-        if char in char_freq:
-            char_freq[char] = char_freq[char] + 1
-    return "".join([f"{char}{freq}" for char, freq in char_freq.items() if freq > 0])
+        if char in alphabet_freq:
+            alphabet_freq[char] = alphabet_freq[char] + 1
+    return "".join([f"{char}{freq}" for char, freq in alphabet_freq.items() if freq > 0])
 
 
 def counting_frequency(strings: list[str]) -> list[list[str]]:
@@ -113,22 +115,24 @@ def counting_frequency(strings: list[str]) -> list[list[str]]:
     - n is the number of strings and
     - k is the average length of the strings
     """
-    freq_map: dict[str, list[str]] = {}
+    groups: dict[str, list[str]] = {}
     for string in strings:
-        freq_string = get_string_signature(string)
-        if freq_string not in freq_map:
-            freq_map[freq_string] = []
-        freq_map[freq_string].append(string)
-    return list(freq_map.values())
+        signature = build_string_signature(string)
+        if signature not in groups:
+            groups[signature] = []
+        groups[signature].append(string)
+    return list(groups.values())
 
 
-def dry_run():
+def run_examples():
     """
-    Dry Run
+    Run examples
     """
     strings = ["eat", "tea", "tan", "ate", "nat", "bat"]
-    print(brute_force(strings))
+    print(f"       brute force: {brute_force(strings)}")
+    print(f"    sorting string: {sorting_string(strings)}")
+    print(f"counting frequency: {counting_frequency(strings)}")
 
 
 if __name__ == "__main__":
-    dry_run()
+    run_examples()
