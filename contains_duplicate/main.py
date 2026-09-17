@@ -2,7 +2,7 @@
 # @Author: VU Anh Tuan
 # @Date:   2026-04-14 16:31:25
 # @Last Modified by:   VU Anh Tuan
-# @Last Modified time: 2026-04-15 09:03:32
+# @Last Modified time: 2026-09-17 11:34:11
 """
 Contains Duplicate
 
@@ -36,7 +36,6 @@ def sorting(nums: list[int]) -> bool:
     for i in range(len(nums) - 1):
         if nums[i] == nums[i + 1]:
             return True
-        i += 1
     return False
 
 
@@ -47,17 +46,17 @@ def hash_set(nums: list[int]) -> bool:
     Time complexity: O(n)
     Space complexity: O(n)
     """
-    num_to_set = set()
+    visited = set()
     for num in nums:
-        if num in num_to_set:
+        if num in visited:
             return True
-        num_to_set.add(num)
+        visited.add(num)
     return False
 
 
-def dry_run():
+def run_examples():
     """
-    Dry run test
+    Run examples
     """
     nums = [1, 2, 3, 1, 5]
     print(f"Brute Force: {brute_force(nums)}")
@@ -66,4 +65,4 @@ def dry_run():
 
 
 if __name__ == "__main__":
-    dry_run()
+    run_examples()
