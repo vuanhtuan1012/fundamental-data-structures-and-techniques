@@ -2,7 +2,7 @@
 # @Author: VU Anh Tuan
 # @Date:   2026-04-13 09:07:13
 # @Last Modified by:   VU Anh Tuan
-# @Last Modified time: 2026-04-18 09:44:45
+# @Last Modified time: 2026-09-17 11:11:00
 """
 Two Sum
 
@@ -47,13 +47,13 @@ def two_pointers(nums: list[int], target: int) -> list[int]:
     they add up to `target`
     """
 
-    nums_with_indices = list(enumerate(nums))
-    nums_with_indices.sort(key=lambda x: x[1])
+    index_num = list(enumerate(nums))
+    index_num.sort(key=lambda x: x[1])
     left, right = 0, len(nums) - 1
     while left < right:
-        current_sum = nums_with_indices[left][1] + nums_with_indices[right][1]
+        current_sum = index_num[left][1] + index_num[right][1]
         if current_sum == target:
-            return [nums_with_indices[left][0], nums_with_indices[right][0]]
+            return [index_num[left][0], index_num[right][0]]
         elif current_sum < target:
             left += 1
         else:
@@ -72,18 +72,18 @@ def hash_map(nums: list[int], target: int) -> list[int]:
     they add up to `target`
     """
 
-    num_to_index = {}
+    num_index = {}
     for i, num in enumerate(nums):
         complement = target - num
-        if complement in num_to_index:
-            return [num_to_index[complement], i]
-        num_to_index[num] = i
+        if complement in num_index:
+            return [num_index[complement], i]
+        num_index[num] = i
     return NOT_FOUND
 
 
-def dry_run():
+def run_examples():
     """
-    Dry run tests
+    Run examples
     """
     nums = [5, 5, 5]
     target = 10
@@ -95,4 +95,4 @@ def dry_run():
 
 
 if __name__ == "__main__":
-    dry_run()
+    run_examples()
